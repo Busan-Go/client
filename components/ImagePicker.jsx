@@ -1,5 +1,5 @@
 import { launchCameraAsync, launchImageLibraryAsync } from "expo-image-picker";
-import { View, Button, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import { useState } from "react";
 
 export default function ImagePicker() {
@@ -37,8 +37,16 @@ export default function ImagePicker() {
           ></View>
         )}
       </View>
-      <Button title="촬영" onPress={takeImageHandler} />
-      <Button title="선택" onPress={selectImageHandler} />
+      <Pressable style={styles.buttonContainer}>
+        <Text onPress={takeImageHandler} style={{ color: "gray" }}>
+          직접 촬영
+        </Text>
+      </Pressable>
+      <Pressable style={styles.buttonContainer}>
+        <Text onPress={selectImageHandler} style={{ color: "gray" }}>
+          앨범에서 선택
+        </Text>
+      </Pressable>
     </>
   );
 }
@@ -51,5 +59,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 4,
+  },
+  buttonContainer: {
+    width: "100%",
+    margin: 4,
+    padding: 10,
+    borderRadius: 4,
+    justifyContent: "center",
+    borderColor: "lightgray",
+    borderWidth: 1,
   },
 });
