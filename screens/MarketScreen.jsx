@@ -5,10 +5,12 @@ import { useState } from "react";
 export default function MarketScreen() {
   const [test, setTest] = useState("");
   function testHandle() {
+    console.log(`${process.env.EXPO_PUBLIC_API_URL}/api/test`);
     axios
       .get(`${process.env.EXPO_PUBLIC_API_URL}/api/test`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
+        setTest(res);
       })
       .catch((err) => {
         console.log(err);
