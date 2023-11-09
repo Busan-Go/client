@@ -6,6 +6,7 @@ import LoginScreen from "./screens/LoginScreen";
 import Toast from "react-native-toast-message";
 import Header from "./components/Header";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Main from "./Main";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,7 @@ export default function App() {
     <SafeAreaProvider>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Main">
           <Stack.Screen
             name="Login"
             component={LoginScreen}
@@ -25,11 +26,11 @@ export default function App() {
             }}
           />
           <Stack.Screen
-            name="Home"
-            component={HomeScreen}
+            name="Main"
+            component={Main}
             options={{
               header: () => {
-                return <Header />;
+                return null;
               },
             }}
           />
