@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Button, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import Modal from "react-native-modal";
 import ImagePicker from "./ImagePicker";
-import { FAB, Icon } from "react-native-paper";
+import { FAB } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 
 const BottomDrawerExample = () => {
@@ -13,7 +13,12 @@ const BottomDrawerExample = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        position: "relative",
+      }}
+    >
       <FAB icon="camera" onPress={toggleModal} style={styles.fabContainer} />
       <Modal
         isVisible={isModalVisible}

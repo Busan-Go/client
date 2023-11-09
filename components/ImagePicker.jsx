@@ -1,5 +1,12 @@
 import { launchCameraAsync, launchImageLibraryAsync } from "expo-image-picker";
-import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import { useState } from "react";
 
 export default function ImagePicker() {
@@ -30,11 +37,34 @@ export default function ImagePicker() {
     <>
       <View style={styles.image}>
         {image ? (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <Image
+              source={{ uri: image }}
+              style={{ width: 200, height: 200 }}
+            />
+            <TouchableOpacity
+              style={{
+                position: "absolute",
+                justifyContent: "center",
+                alignItems: "center",
+                width: 200,
+                height: 200,
+              }}
+              onPress={() => console.log("아이콘 클릭!")}
+            >
+              <Text style={{ fontSize: 30, color: "white" }}>Send?</Text>
+            </TouchableOpacity>
+          </View>
         ) : (
           <View
             style={{ backgroundColor: "lightgray", width: 200, height: 200 }}
-          ></View>
+          />
         )}
       </View>
       <Pressable style={styles.buttonContainer}>
