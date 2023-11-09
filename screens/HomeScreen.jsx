@@ -3,7 +3,9 @@ import { View, Text, StyleSheet } from "react-native";
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.titleContainer}>My Delog</Text>
+      <Text style={styles.titleContainer}>
+        My {process.env.EXPO_PUBLIC_APP_TITLE}
+      </Text>
       <Text style={{ padding: 10, color: "gray" }}>
         내가 달성한 미션을 확인해보세요!
       </Text>
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   titleContainer: {
-    fontSize: 30,
+    fontSize: 36,
     color: "#268367",
     paddingHorizontal: 16,
     fontWeight: "bold",

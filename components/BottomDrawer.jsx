@@ -19,7 +19,13 @@ const BottomDrawerExample = () => {
         position: "relative",
       }}
     >
-      <FAB icon="camera" onPress={toggleModal} style={styles.fabContainer} />
+      <FAB
+        icon="camera"
+        onPress={toggleModal}
+        style={styles.fabContainer}
+        backgroundColor="#23A67E"
+        color="white"
+      />
       <Modal
         isVisible={isModalVisible}
         onSwipeComplete={toggleModal}
