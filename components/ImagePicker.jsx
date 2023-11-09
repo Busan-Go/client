@@ -7,10 +7,12 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MyContext } from "../App";
 
 export default function ImagePicker({ onPress, text }) {
-  const [image, setImage] = useState("");
+  const { imageUri, setImageUri } = useContext(MyContext);
+
   async function selectImageHandler() {
     const result = await launchImageLibraryAsync({
       aspect: [16, 9],
@@ -18,7 +20,7 @@ export default function ImagePicker({ onPress, text }) {
     });
     console.log(result);
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
+      setImageUri(result.assets[0].uri);
     }
   }
 
@@ -29,14 +31,14 @@ export default function ImagePicker({ onPress, text }) {
     });
     console.log(result);
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
+      setImageUri(result.assets[0].uri);
     }
   }
 
   return (
     <>
       <View style={styles.image}>
-        {image ? (
+        {imageUri ? (
           <View
             style={{
               justifyContent: "center",
@@ -45,7 +47,7 @@ export default function ImagePicker({ onPress, text }) {
             }}
           >
             <Image
-              source={{ uri: image }}
+              source={{ uri: imageUri }}
               style={{ width: 200, height: 200 }}
             />
             <TouchableOpacity
@@ -57,8 +59,8 @@ export default function ImagePicker({ onPress, text }) {
                 height: 200,
               }}
               onPress={() => {
-                console.log(image);
-                onPress(text, image);
+                console.log(imageUri);
+                onPress(text, imageUri);
               }}
             >
               <Text style={{ fontSize: 30, color: "white" }}>Send?</Text>

@@ -8,70 +8,76 @@ import Main from "./Main";
 import LoadingScreen from "./screens/LoadingScreen";
 import MissionSuccessScreen from "./screens/MissionSuccessScreen";
 import MissionFailScreen from "./screens/MissionFailScreen";
-import { useState } from "react";
+import { useState, createContext } from "react";
+
+export const MyContext = createContext();
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [wallet, setWallet] = useState(750);
+  const [imageUri, setImageUri] = useState("");
+
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Main">
-          <Stack.Screen
-            name="Login"
-            component={LoginScreen}
-            options={{
-              header: () => {
-                return null;
-              },
-            }}
-          />
-          <Stack.Screen
-            name="Main"
-            options={{
-              header: () => {
-                return null;
-              },
-            }}
-          >
-            {(props) => (
-              <Main {...props} wallet={wallet} setWallet={setWallet} />
-            )}
-          </Stack.Screen>
-          <Stack.Screen
-            name="Loading"
-            component={LoadingScreen}
-            options={{
-              header: () => {
-                return null;
-              },
-            }}
-          />
-          <Stack.Screen
-            name="MissionSuccess"
-            options={{
-              header: () => {
-                return null;
-              },
-            }}
-          >
-            {(props) => (
-              <MissionSuccessScreen {...props} setWallet={setWallet} />
-            )}
-          </Stack.Screen>
-          <Stack.Screen
-            name="MissionFail"
-            component={MissionFailScreen}
-            options={{
-              header: () => {
-                return null;
-              },
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <MyContext.Provider value={{ wallet, setWallet, imageUri, setImageUri }}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Main">
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{
+                header: () => {
+                  return null;
+                },
+              }}
+            />
+            <Stack.Screen
+              name="Main"
+              options={{
+                header: () => {
+                  return null;
+                },
+              }}
+            >
+              {(props) => (
+                <Main {...props} wallet={wallet} setWallet={setWallet} />
+              )}
+            </Stack.Screen>
+            <Stack.Screen
+              name="Loading"
+              component={LoadingScreen}
+              options={{
+                header: () => {
+                  return null;
+                },
+              }}
+            />
+            <Stack.Screen
+              name="MissionSuccess"
+              options={{
+                header: () => {
+                  return null;
+                },
+              }}
+            >
+              {(props) => (
+                <MissionSuccessScreen {...props} setWallet={setWallet} />
+              )}
+            </Stack.Screen>
+            <Stack.Screen
+              name="MissionFail"
+              component={MissionFailScreen}
+              options={{
+                header: () => {
+                  return null;
+                },
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </MyContext.Provider>
       <Toast />
     </SafeAreaProvider>
   );

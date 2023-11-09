@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeScreen({ wallet }) {
   return (
     <View style={styles.container}>
       <ScrollView alwaysBounceVertical showsVerticalScrollIndicator={false}>
@@ -18,6 +18,11 @@ export default function HomeScreen() {
             source={require("../assets/home_banner.png")}
             style={{ width: "100%", height: 600 }}
           />
+          <View style={{ position: "absolute", top: 36, right: 30 }}>
+            <Text style={{ color: "white", fontSize: 50, fontWeight: "bold" }}>
+              {wallet}P
+            </Text>
+          </View>
         </View>
         <View style={{ width: "100%", height: 100 }}></View>
       </ScrollView>

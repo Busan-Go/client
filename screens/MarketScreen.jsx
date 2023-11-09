@@ -3,26 +3,37 @@ import axios from "axios";
 import { useState } from "react";
 import GifticonItem from "../components/GifticonItem";
 
+const imagelist = [
+  require("../assets/image1.png"),
+  require("../assets/image2.png"),
+  require("../assets/image3.png"),
+  require("../assets/image4.png"),
+];
+
 const shoplist = [
   {
+    image: imagelist[0],
     name: "은희네 우동집",
     menu: "꼬마김밥 한 줄",
     price: 300,
     description: "대구 수성구 지산로 47 올리브김밥천국",
   },
   {
+    image: imagelist[1],
     name: "중앙떡볶이",
     menu: "주먹밥 한 개",
     price: 250,
     description: "대구 중구 동성로2길 81 중앙떡볶이",
   },
   {
+    image: imagelist[2],
     name: "상근이네 오뎅집",
     menu: "어묵꼬지 한 개",
     price: 210,
     description: "대구 수성구 지산로 47 올리브김밥천국",
   },
   {
+    image: imagelist[3],
     name: "구삼커피",
     menu: "쿠키 한 개",
     price: 500,
