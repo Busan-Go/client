@@ -5,12 +5,17 @@ import ImagePicker from "./ImagePicker";
 import { FAB } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 
-const BottomDrawerExample = () => {
+const BottomDrawerExample = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
-  const toggleModal = () => {
+  function toggleModal() {
     setModalVisible(!isModalVisible);
-  };
+  }
+
+  function sendImageHandle() {
+    console.log("이미지 전송!");
+    navigation.navigate("Loading");
+  }
 
   return (
     <View
@@ -34,7 +39,7 @@ const BottomDrawerExample = () => {
       >
         <View style={styles.modalContent}>
           <Text>등록할 사진을 촬영 혹은 선택해주세요! </Text>
-          <ImagePicker />
+          <ImagePicker onPress={sendImageHandle} />
           <Pressable onPress={toggleModal} style={styles.closeContainer}>
             <Ionicons
               name="close"
@@ -70,7 +75,6 @@ const styles = {
     position: "absolute",
     bottom: 0,
     right: 0,
-    margin: 20,
   },
   closeContainer: {
     position: "absolute",

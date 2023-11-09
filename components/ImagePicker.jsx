@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-export default function ImagePicker() {
+export default function ImagePicker({ onPress }) {
   const [image, setImage] = useState("");
   async function selectImageHandler() {
     const result = await launchImageLibraryAsync({
@@ -56,7 +56,7 @@ export default function ImagePicker() {
                 width: 200,
                 height: 200,
               }}
-              onPress={() => console.log("아이콘 클릭!")}
+              onPress={onPress}
             >
               <Text style={{ fontSize: 30, color: "white" }}>Send?</Text>
             </TouchableOpacity>
