@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Header from "./components/Header";
 import HomeScreen from "./screens/HomeScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-import Header from "./components/Header";
+import RecommendScreen from "./screens/RecommendScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -18,7 +19,7 @@ export default function Main({ navigation }) {
             },
           }}
         >
-          {() => <HomeScreen navigation={navigation} />}
+          {() => <HomeScreen />}
         </BottomTab.Screen>
         <BottomTab.Screen
           name="Register"
@@ -29,6 +30,16 @@ export default function Main({ navigation }) {
           }}
         >
           {() => <RegisterScreen />}
+        </BottomTab.Screen>
+        <BottomTab.Screen
+          name="Recommend"
+          options={{
+            header: () => {
+              return null;
+            },
+          }}
+        >
+          {() => <RecommendScreen />}
         </BottomTab.Screen>
       </BottomTab.Navigator>
     </>
