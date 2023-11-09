@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import Toast from "react-native-toast-message";
-import Header from "./components/Header";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Main from "./Main";
 
@@ -15,7 +14,7 @@ export default function App() {
     <SafeAreaProvider>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Main">
+        <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="Login"
             component={LoginScreen}

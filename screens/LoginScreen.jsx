@@ -3,8 +3,8 @@ import { View, TextInput, Button, StyleSheet } from "react-native";
 import Toast from "react-native-toast-message";
 
 export default function LoginScreen({ navigation }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("user");
+  const [password, setPassword] = useState("1234");
 
   const handleLogin = () => {
     if (username === "" || password === "") {
@@ -15,8 +15,10 @@ export default function LoginScreen({ navigation }) {
     console.log("로그인 시도", username, password);
     if (username === "user" && password === "1234") {
       showToast("success", "Login is successful!");
-      navigation.navigate("Home");
+      navigation.navigate("Main");
     } else {
+      setUsername("");
+      setPassword("");
       showToast("error", "Login is failed..");
     }
   };
