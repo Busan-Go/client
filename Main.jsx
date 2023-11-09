@@ -5,6 +5,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import RecommendScreen from "./screens/RecommendScreen";
 import { View } from "react-native";
 import LoadingScreen from "./screens/LoadingScreen";
+import MissionPlaceScreen from "./screens/MissionPlaceScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -41,7 +42,17 @@ export default function Main({ navigation }) {
             },
           }}
         >
-          {() => <RecommendScreen />}
+          {() => <RecommendScreen navigation={navigation} />}
+        </BottomTab.Screen>
+        <BottomTab.Screen
+          name="MissionPlace"
+          options={{
+            header: () => {
+              return null;
+            },
+          }}
+        >
+          {() => <MissionPlaceScreen />}
         </BottomTab.Screen>
       </BottomTab.Navigator>
     </>
