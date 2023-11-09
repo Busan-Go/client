@@ -1,15 +1,7 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
-import { useEffect, useState } from "react";
 import SearchingBar from "../components/SearchingBar";
 
-export default function MissionPlaceScreen() {
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    // db에서 관광지 검색
-    console.log(text);
-  }, [text]);
-
+export default function MissionPlaceScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -27,7 +19,7 @@ export default function MissionPlaceScreen() {
             대이로그는 총 246개의 미션장소를 제공합니다. 미션을 수행하고 싶은
             곳을 검색해보세요.
           </Text>
-          <SearchingBar value={text} setValue={setText} />
+          <SearchingBar navigation={navigation} />
           <View style={{ width: "100%", height: 100 }}></View>
         </View>
       </ScrollView>

@@ -1,8 +1,19 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import BottomDrawer from "../components/BottomDrawer";
 import ExampleScrollView from "../components/ExampleScrollView";
+import { useState, useEffect } from "react";
 
-export default function RegisterScreen({ navigation }) {
+export default function RegisterScreen({ navigation, route }) {
+  const [selectedItem, setSelectedItem] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (route && route.params) {
+      setSelectedItem(route.params.item);
+      setVisible(true);
+    }
+  }, []);
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -31,7 +42,11 @@ export default function RegisterScreen({ navigation }) {
 
         <View style={{ width: "100%", height: 100 }}></View>
       </ScrollView>
-      <BottomDrawer navigation={navigation} />
+      <BottomDrawer
+        navigation={navigation}
+        visible={visible}
+        defaultValue={selectedItem}
+      />
     </View>
   );
 }

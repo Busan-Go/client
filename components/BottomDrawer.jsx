@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import { View, Text, Pressable } from "react-native";
+import { useState, useEffect } from "react";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import Modal from "react-native-modal";
 import ImagePicker from "./ImagePicker";
 import { FAB } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
+import SearchingBar from "./SearchingBar";
 
-const BottomDrawerExample = ({ navigation }) => {
+export default function BottomDrawer({ navigation, visible, defaultValue }) {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    // db에서 관광지 검색
+    if (visible) {
+      setModalVisible(true);
+    }
+    console.log(text);
+  }, [text, visible]);
 
   function toggleModal() {
     setModalVisible(!isModalVisible);
@@ -38,6 +48,7 @@ const BottomDrawerExample = ({ navigation }) => {
         style={styles.bottomModal}
       >
         <View style={styles.modalContent}>
+          <SearchingBar navigation={navigation} defaultValue={defaultValue} />
           <Text>등록할 사진을 촬영 혹은 선택해주세요! </Text>
           <ImagePicker onPress={sendImageHandle} />
           <Pressable onPress={toggleModal} style={styles.closeContainer}>
@@ -55,9 +66,9 @@ const BottomDrawerExample = ({ navigation }) => {
       </Modal>
     </View>
   );
-};
+}
 
-const styles = {
+const styles = StyleSheet.create({
   bottomModal: {
     justifyContent: "flex-end",
     margin: 0,
@@ -82,6 +93,4 @@ const styles = {
     right: 0,
     margin: 20,
   },
-};
-
-export default BottomDrawerExample;
+});

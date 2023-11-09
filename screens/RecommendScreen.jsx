@@ -2,21 +2,8 @@ import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
 import TagItem from "../components/TagItem";
 import { Ionicons } from "@expo/vector-icons";
 import FollowScrollView from "../components/FollowScrollView";
-
-const tags = [
-  "83 타워",
-  "김광석 길",
-  "디아크",
-  "달성공원",
-  "감영공원",
-  "국채보상운동기념공원",
-  "희움 위안부 역사관",
-  "서문시장",
-  "서남시장",
-  "대구 수목원",
-  "주교좌 성당",
-  "이월드",
-];
+import { tags } from "../data";
+import CustomArrow from "../components/CustomArrow";
 
 export default function RecommendScreen({ navigation }) {
   return (
@@ -57,25 +44,13 @@ export default function RecommendScreen({ navigation }) {
                 >
                   미션 장소 더 알아보기
                 </Text>
-                <View
-                  style={{
-                    borderRadius: 50,
-                    backgroundColor: "#5FA790",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: 32,
-                    height: 32,
-                  }}
-                >
-                  <Ionicons
-                    name="arrow-forward-sharp"
-                    size={32}
-                    style={{
-                      color: "white",
-                      opacity: 1,
-                    }}
-                  />
-                </View>
+                <CustomArrow
+                  onPress={() =>
+                    navigation.navigate("MissionPlace", {
+                      item: "",
+                    })
+                  }
+                />
               </View>
             </View>
           </Pressable>

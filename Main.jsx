@@ -3,14 +3,12 @@ import Header from "./components/Header";
 import HomeScreen from "./screens/HomeScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import RecommendScreen from "./screens/RecommendScreen";
-import { View } from "react-native";
-import LoadingScreen from "./screens/LoadingScreen";
 import MissionPlaceScreen from "./screens/MissionPlaceScreen";
 import MarketScreen from "./screens/MarketScreen";
 
 const BottomTab = createBottomTabNavigator();
 
-export default function Main({ navigation }) {
+export default function Main() {
   return (
     <>
       <Header />
@@ -18,52 +16,42 @@ export default function Main({ navigation }) {
         <BottomTab.Screen
           name="Home"
           options={{
-            header: () => {
-              return null;
-            },
+            headerShown: false,
           }}
         >
-          {() => <HomeScreen />}
+          {(props) => <HomeScreen {...props} />}
         </BottomTab.Screen>
         <BottomTab.Screen
           name="Register"
           options={{
-            header: () => {
-              return null;
-            },
+            headerShown: false,
           }}
         >
-          {() => <RegisterScreen navigation={navigation} />}
+          {(props) => <RegisterScreen {...props} />}
         </BottomTab.Screen>
         <BottomTab.Screen
           name="Recommend"
           options={{
-            header: () => {
-              return null;
-            },
+            headerShown: false,
           }}
         >
-          {() => <RecommendScreen navigation={navigation} />}
+          {(props) => <RecommendScreen {...props} />}
         </BottomTab.Screen>
         <BottomTab.Screen
           name="MissionPlace"
           options={{
-            header: () => {
-              return null;
-            },
+            headerShown: false,
           }}
         >
-          {() => <MissionPlaceScreen />}
+          {(props) => <MissionPlaceScreen {...props} />}
         </BottomTab.Screen>
         <BottomTab.Screen
           name="Market"
           options={{
-            header: () => {
-              return null;
-            },
+            headerShown: false,
           }}
         >
-          {() => <MarketScreen />}
+          {(props) => <MarketScreen {...props} />}
         </BottomTab.Screen>
       </BottomTab.Navigator>
     </>

@@ -7,10 +7,11 @@ export default function MarketScreen() {
   function testHandle() {
     console.log(`${process.env.EXPO_PUBLIC_API_URL}/api/test`);
     axios
-      .get(`${process.env.EXPO_PUBLIC_API_URL}/api/test`)
+      .get(`${process.env.EXPO_PUBLIC_API_URL}/api/users`)
       .then((res) => {
-        console.log(res.data.message);
-        setTest(res.data.message);
+        console.log(res);
+        console.log(res.data.users);
+        setTest(res.data.users[0].username);
       })
       .catch((err) => {
         console.log(err);
