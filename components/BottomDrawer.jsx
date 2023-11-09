@@ -61,7 +61,8 @@ export default function BottomDrawer({
         navigation.navigate("MissionFail");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      navigation.navigate("MissionFail");
     }
   };
 

@@ -3,13 +3,13 @@ import { Image, StyleSheet, Text, View, Button, Pressable } from "react-native";
 export default function MissionFailScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <View style={{}}>
+      <View>
         <Image source={require("../assets/robot3.png")} />
       </View>
-      <Text style={styles.title}>미션 실패입니다..</Text>
+      <Text style={styles.title}>앗, 미션 실패입니다. </Text>
       <Text style={{ color: "gray" }}>
         대이로그 AI의 검토에 따라, 지정된 대구의 관광명소에서 촬영한 사진이 아닌
-        것으로 판별되었습니다.{" "}
+        것으로 판별되었습니다.
       </Text>
       <Text style={styles.subtitle}>
         지정된 관광명소에서 찍은 사진이 맞다면?

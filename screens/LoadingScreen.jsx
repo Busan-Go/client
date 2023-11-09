@@ -14,9 +14,13 @@ export default function LoadingScreen() {
           backgroundColor: "#268367",
           width: 2,
           marginVertical: 16,
+          marginBottom: 20,
         }}
       />
-      <Text style={styles.subtitle}>델로그AI란, ~~~</Text>
+      <Text style={styles.subtitle}>
+        델로그AI란, 대구광역시의 관광명소의 이미지를 학습하여 등록된 미션사진의
+        장소와 진위여부를 판단하는 AI 모델입니다.{" "}
+      </Text>
     </View>
   );
 }

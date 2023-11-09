@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { useContext, useEffect } from "react";
 import { MyContext } from "../App";
 import { Ionicons } from "@expo/vector-icons";
@@ -8,9 +8,6 @@ export default function MissionSuccessScreen({ navigation, setWallet }) {
 
   useEffect(() => {
     console.log("Mission Success Screen");
-    setTimeout(() => {
-      navigation.navigate("Home");
-    }, 5000);
     setWallet((prev) => prev + 200);
   }, []);
 
@@ -20,7 +17,7 @@ export default function MissionSuccessScreen({ navigation, setWallet }) {
         <Image source={require("../assets/robot2.png")} />
       </View>
       <Text style={styles.title}>미션 성공을 축하드립니다!</Text>
-      <View style={{ position: "relative" }}>
+      <View style={{ position: "relative", marginTop: 30 }}>
         <Image source={{ uri: imageUri }} style={{ width: 300, height: 300 }} />
         <Ionicons
           name="open"
@@ -28,6 +25,21 @@ export default function MissionSuccessScreen({ navigation, setWallet }) {
           style={{ position: "absolute", top: 0, right: 0 }}
         />
       </View>
+      <Pressable
+        onPress={() => navigation.navigate("Market")}
+        style={{
+          backgroundColor: "#23A67E",
+          width: "90%",
+          height: 50,
+          margin: 20,
+          elevation: 3,
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: 10,
+        }}
+      >
+        <Text style={{ color: "white" }}>마켓으로 가기</Text>
+      </Pressable>
     </View>
   );
 }
