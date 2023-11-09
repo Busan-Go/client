@@ -6,6 +6,7 @@ import RecommendScreen from "./screens/RecommendScreen";
 import MissionPlaceScreen from "./screens/MissionPlaceScreen";
 import MarketScreen from "./screens/MarketScreen";
 import { useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -18,6 +19,7 @@ export default function Main({ wallet, setWallet }) {
           name="Home"
           options={{
             headerShown: false,
+            tabBarIcon: () => <Ionicons name="home" />,
           }}
         >
           {(props) => <HomeScreen {...props} wallet={wallet} />}
@@ -26,6 +28,7 @@ export default function Main({ wallet, setWallet }) {
           name="Register"
           options={{
             headerShown: false,
+            tabBarIcon: () => <Ionicons name="send" />,
           }}
         >
           {(props) => <RegisterScreen {...props} />}
@@ -34,6 +37,7 @@ export default function Main({ wallet, setWallet }) {
           name="Recommend"
           options={{
             headerShown: false,
+            tabBarIcon: () => <Ionicons name="thumbs-up" />,
           }}
         >
           {(props) => <RecommendScreen {...props} />}
@@ -42,6 +46,7 @@ export default function Main({ wallet, setWallet }) {
           name="MissionPlace"
           options={{
             headerShown: false,
+            tabBarIcon: () => <Ionicons name="map" />,
           }}
         >
           {(props) => <MissionPlaceScreen {...props} />}
@@ -50,6 +55,7 @@ export default function Main({ wallet, setWallet }) {
           name="Market"
           options={{
             headerShown: false,
+            tabBarIcon: () => <Ionicons name="card" />,
           }}
         >
           {(props) => <MarketScreen {...props} wallet={wallet} />}

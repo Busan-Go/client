@@ -65,9 +65,8 @@ export default function SearchingBar({
           style={styles.input}
           onChangeText={fetchSuggestions}
           value={searchTerm}
-          placeholder="Type place.."
+          placeholder="검색어를 입력해보세요."
           underlineColor="white"
-          autoFocus
         />
         <Pressable onPress={clearInput} style={styles.clearButton}>
           <Ionicons name="md-close-circle" size={30} color="lightgray" />
