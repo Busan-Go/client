@@ -1,11 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 export default function GifticonItem({ shop }) {
   return (
     <View style={styles.gifticonContainer}>
       <View
-        style={{ width: 100, heigth: 100, backgroundColor: "lightgray" }}
-      ></View>
+        style={{
+          width: 100,
+          heigth: 100,
+          backgroundColor: "lightgray",
+          overflow: "hidden",
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          source={require(`../assets/image1.png`)}
+          style={{ width: 100, heigth: 100 }}
+        />
+      </View>
       <View style={{ padding: 8, justifyContent: "space-around" }}>
         <Text style={styles.subtitle}>{shop.name}</Text>
         <Text style={styles.subtitle}>

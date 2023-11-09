@@ -5,10 +5,11 @@ import RegisterScreen from "./screens/RegisterScreen";
 import RecommendScreen from "./screens/RecommendScreen";
 import MissionPlaceScreen from "./screens/MissionPlaceScreen";
 import MarketScreen from "./screens/MarketScreen";
+import { useState } from "react";
 
 const BottomTab = createBottomTabNavigator();
 
-export default function Main() {
+export default function Main({ wallet, setWallet }) {
   return (
     <>
       <Header />
@@ -19,7 +20,7 @@ export default function Main() {
             headerShown: false,
           }}
         >
-          {(props) => <HomeScreen {...props} />}
+          {(props) => <HomeScreen {...props} wallet={wallet} />}
         </BottomTab.Screen>
         <BottomTab.Screen
           name="Register"
@@ -51,7 +52,7 @@ export default function Main() {
             headerShown: false,
           }}
         >
-          {(props) => <MarketScreen {...props} />}
+          {(props) => <MarketScreen {...props} wallet={wallet} />}
         </BottomTab.Screen>
       </BottomTab.Navigator>
     </>

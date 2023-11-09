@@ -1,7 +1,8 @@
-import { ScrollView, StyleSheet, View, Text } from "react-native";
+import { ScrollView, StyleSheet, View, Text, Button } from "react-native";
 import BottomDrawer from "../components/BottomDrawer";
 import ExampleScrollView from "../components/ExampleScrollView";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function RegisterScreen({ navigation, route }) {
   const [selectedItem, setSelectedItem] = useState("");
@@ -39,13 +40,13 @@ export default function RegisterScreen({ navigation, route }) {
         </Text>
         <Text style={styles.subtitle}>Example</Text>
         <ExampleScrollView />
-
         <View style={{ width: "100%", height: 100 }}></View>
       </ScrollView>
       <BottomDrawer
         navigation={navigation}
         visible={visible}
         defaultValue={selectedItem}
+        setSelectedItem={setSelectedItem}
       />
     </View>
   );

@@ -1,10 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 
-export default function LoadingScreen({ navigation }) {
-  setTimeout(() => {
-    navigation.navigate("MissionFail");
-  }, 3000);
-
+export default function LoadingScreen() {
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 28 }}>

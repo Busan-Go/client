@@ -5,8 +5,14 @@ import ImagePicker from "./ImagePicker";
 import { FAB } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import SearchingBar from "./SearchingBar";
+import axios from "axios";
 
-export default function BottomDrawer({ navigation, visible, defaultValue }) {
+export default function BottomDrawer({
+  navigation,
+  visible,
+  defaultValue,
+  setSelectedItem,
+}) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState("");
 
@@ -22,10 +28,42 @@ export default function BottomDrawer({ navigation, visible, defaultValue }) {
     setModalVisible(!isModalVisible);
   }
 
-  function sendImageHandle() {
-    console.log("이미지 전송!");
+  const sendImageHandle = async (textData, imageUri) => {
     navigation.navigate("Loading");
-  }
+    const formData = new FormData();
+
+    formData.append("text", textData);
+    formData.append("file", {
+      uri: imageUri,
+      type: "image/jpeg",
+      name: "photo.jpg",
+    });
+
+    console.log("sending..");
+    console.log(textData);
+    console.log(imageUri);
+    try {
+      const response = await axios.post(
+        `${process.env.EXPO_PUBLIC_API_URL}/api/check`,
+        formData,
+        {
+          headers: {
+            // axios는 multipart/form-data를 자동으로 설정합니다.
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+      if (response.data.Judge === true) {
+        navigation.navigate("MissionSuccess");
+      } else {
+        navigation.navigate("MissionFail");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <View
@@ -52,9 +90,10 @@ export default function BottomDrawer({ navigation, visible, defaultValue }) {
             navigation={navigation}
             defaultValue={defaultValue}
             visibleModal={false}
+            setTextDataItem={setSelectedItem}
           />
           <Text>등록할 사진을 촬영 혹은 선택해주세요! </Text>
-          <ImagePicker onPress={sendImageHandle} />
+          <ImagePicker onPress={sendImageHandle} text={defaultValue} />
           <Pressable onPress={toggleModal} style={styles.closeContainer}>
             <Ionicons
               name="close"

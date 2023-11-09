@@ -8,10 +8,12 @@ import Main from "./Main";
 import LoadingScreen from "./screens/LoadingScreen";
 import MissionSuccessScreen from "./screens/MissionSuccessScreen";
 import MissionFailScreen from "./screens/MissionFailScreen";
+import { useState } from "react";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [wallet, setWallet] = useState(750);
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
@@ -28,13 +30,16 @@ export default function App() {
           />
           <Stack.Screen
             name="Main"
-            component={Main}
             options={{
               header: () => {
                 return null;
               },
             }}
-          />
+          >
+            {(props) => (
+              <Main {...props} wallet={wallet} setWallet={setWallet} />
+            )}
+          </Stack.Screen>
           <Stack.Screen
             name="Loading"
             component={LoadingScreen}
@@ -45,14 +50,17 @@ export default function App() {
             }}
           />
           <Stack.Screen
-            name="MissionSucess"
-            component={MissionSuccessScreen}
+            name="MissionSuccess"
             options={{
               header: () => {
                 return null;
               },
             }}
-          />
+          >
+            {(props) => (
+              <MissionSuccessScreen {...props} setWallet={setWallet} />
+            )}
+          </Stack.Screen>
           <Stack.Screen
             name="MissionFail"
             component={MissionFailScreen}

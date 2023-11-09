@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-export default function ImagePicker({ onPress }) {
+export default function ImagePicker({ onPress, text }) {
   const [image, setImage] = useState("");
   async function selectImageHandler() {
     const result = await launchImageLibraryAsync({
@@ -56,7 +56,10 @@ export default function ImagePicker({ onPress }) {
                 width: 200,
                 height: 200,
               }}
-              onPress={onPress}
+              onPress={() => {
+                console.log(image);
+                onPress(text, image);
+              }}
             >
               <Text style={{ fontSize: 30, color: "white" }}>Send?</Text>
             </TouchableOpacity>

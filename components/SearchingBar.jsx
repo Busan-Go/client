@@ -9,6 +9,7 @@ export default function SearchingBar({
   navigation,
   defaultValue,
   visibleModal,
+  setTextDataItem,
 }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -27,6 +28,7 @@ export default function SearchingBar({
     setSelectedItem(item);
     setSearchTerm(item);
     setModalVisible(true);
+    setTextDataItem(item);
   };
 
   const onSuggestionPressed = (suggestion) => {

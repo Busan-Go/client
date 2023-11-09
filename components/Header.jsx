@@ -18,7 +18,7 @@ function HeaderLogo() {
 
 const styles = StyleSheet.create({
   logo: {
-    width: 50,
+    width: 90,
     height: 50,
     margin: 10,
   },

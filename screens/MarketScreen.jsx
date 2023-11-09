@@ -30,7 +30,7 @@ const shoplist = [
   },
 ];
 
-export default function MarketScreen() {
+export default function MarketScreen({ wallet }) {
   const [test, setTest] = useState("");
   function testHandle() {
     console.log(`${process.env.EXPO_PUBLIC_API_URL}/api/test`);
@@ -76,7 +76,7 @@ export default function MarketScreen() {
           <Text style={styles.title}>{process.env.EXPO_PUBLIC_APP_TITLE}</Text>
           <Text style={styles.title}>Point Shop</Text>
           <Text style={{ color: "#F3BF26", fontSize: 20, marginTop: 10 }}>
-            보유 포인트 | 750P
+            보유 포인트 | {wallet}P
           </Text>
         </View>
         {shoplist.map((shop, index) => (
