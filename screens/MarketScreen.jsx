@@ -1,6 +1,34 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import axios from "axios";
 import { useState } from "react";
+import GifticonItem from "../components/GifticonItem";
+
+const shoplist = [
+  {
+    name: "은희네 우동집",
+    menu: "꼬마김밥 한 줄",
+    price: 300,
+    description: "대구 수성구 지산로 47 올리브김밥천국",
+  },
+  {
+    name: "중앙떡볶이",
+    menu: "주먹밥 한 개",
+    price: 250,
+    description: "대구 중구 동성로2길 81 중앙떡볶이",
+  },
+  {
+    name: "상근이네 오뎅집",
+    menu: "어묵꼬지 한 개",
+    price: 210,
+    description: "대구 수성구 지산로 47 올리브김밥천국",
+  },
+  {
+    name: "구삼커피",
+    menu: "쿠키 한 개",
+    price: 500,
+    description: "대구 중구 봉산문화2길 16-3 구삼커피",
+  },
+];
 
 export default function MarketScreen() {
   const [test, setTest] = useState("");
@@ -20,9 +48,41 @@ export default function MarketScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Market</Text>
-      <Button title="test" onPress={testHandle} />
-      <Text>{test !== "" ? test : "아무것도 못 받음"}</Text>
+      <View
+        style={{
+          backgroundColor: "#268367",
+          padding: 200,
+          position: "absolute",
+          borderRadius: 200,
+          top: -100,
+          left: -50,
+          zIndex: 0,
+        }}
+      />
+      <ScrollView
+        style={{ width: "100%", height: "100%" }}
+        alwaysBounceVertical
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={{ flex: 1, justifyContent: "space-evenly" }}>
+          <View
+            style={{
+              width: "100%",
+              height: 60,
+              backgroundColor: "transparent",
+              zIndex: -1,
+            }}
+          />
+          <Text style={styles.title}>{process.env.EXPO_PUBLIC_APP_TITLE}</Text>
+          <Text style={styles.title}>Point Shop</Text>
+          <Text style={{ color: "#F3BF26", fontSize: 20, marginTop: 10 }}>
+            보유 포인트 | 750P
+          </Text>
+        </View>
+        {shoplist.map((shop, index) => (
+          <GifticonItem key={index} shop={shop} />
+        ))}
+      </ScrollView>
     </View>
   );
 }
@@ -34,7 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e2f7f0",
   },
   title: {
-    color: "#268367",
+    color: "white",
     fontSize: 40,
     fontWeight: "bold",
   },
