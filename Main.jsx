@@ -6,6 +6,7 @@ import RecommendScreen from "./screens/RecommendScreen";
 import { View } from "react-native";
 import LoadingScreen from "./screens/LoadingScreen";
 import MissionPlaceScreen from "./screens/MissionPlaceScreen";
+import MarketScreen from "./screens/MarketScreen";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -53,6 +54,16 @@ export default function Main({ navigation }) {
           }}
         >
           {() => <MissionPlaceScreen />}
+        </BottomTab.Screen>
+        <BottomTab.Screen
+          name="Market"
+          options={{
+            header: () => {
+              return null;
+            },
+          }}
+        >
+          {() => <MarketScreen />}
         </BottomTab.Screen>
       </BottomTab.Navigator>
     </>
