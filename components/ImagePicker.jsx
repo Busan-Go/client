@@ -1,10 +1,10 @@
-import { launchImageLibraryAsync } from "expo-image-picker";
+import { launchCameraAsync, launchImageLibraryAsync } from "expo-image-picker";
 import { View, Button, Image, StyleSheet, Text } from "react-native";
 import { useState } from "react";
 
 export default function ImagePicker() {
   const [image, setImage] = useState("");
-  async function takeImageHandler() {
+  async function selectImageHandler() {
     const result = await launchImageLibraryAsync({
       aspect: [16, 9],
       quality: 0.5,
@@ -15,15 +15,31 @@ export default function ImagePicker() {
     }
   }
 
+  async function takeImageHandler() {
+    const result = await launchCameraAsync({
+      aspect: [16, 9],
+      quality: 0.5,
+    });
+    console.log(result);
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  }
+
   return (
-    <View>
+    <>
       <View style={styles.image}>
-        {image && (
+        {image ? (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        ) : (
+          <View
+            style={{ backgroundColor: "lightgray", width: 200, height: 200 }}
+          ></View>
         )}
       </View>
-      <Button title="Take Image" onPress={takeImageHandler} />
-    </View>
+      <Button title="촬영" onPress={takeImageHandler} />
+      <Button title="선택" onPress={selectImageHandler} />
+    </>
   );
 }
 
