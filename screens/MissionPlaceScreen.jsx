@@ -19,7 +19,11 @@ export default function MissionPlaceScreen({ navigation }) {
             대이로그는 총 246개의 미션장소를 제공합니다. 미션을 수행하고 싶은
             곳을 검색해보세요.
           </Text>
-          <SearchingBar navigation={navigation} />
+          <SearchingBar
+            navigation={navigation}
+            defaultValue=""
+            visibleModal={true}
+          />
           <View style={{ width: "100%", height: 100 }}></View>
         </View>
       </ScrollView>

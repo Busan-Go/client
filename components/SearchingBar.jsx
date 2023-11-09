@@ -5,7 +5,11 @@ import { tags } from "../data";
 import { useState, useEffect } from "react";
 import CustomArrow from "./CustomArrow";
 
-export default function SearchingBar({ navigation, defaultValue }) {
+export default function SearchingBar({
+  navigation,
+  defaultValue,
+  visibleModal,
+}) {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -21,6 +25,7 @@ export default function SearchingBar({ navigation, defaultValue }) {
   // 모달을 열고 선택된 아이템을 설정하는 함수
   const openModalWithItem = (item) => {
     setSelectedItem(item);
+    setSearchTerm(item);
     setModalVisible(true);
   };
 
@@ -97,7 +102,7 @@ export default function SearchingBar({ navigation, defaultValue }) {
 
       <Modal
         transparent={true}
-        visible={modalVisible}
+        visible={modalVisible && visibleModal}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
         }}
