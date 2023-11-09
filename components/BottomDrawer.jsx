@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
 import Modal from "react-native-modal";
 import ImagePicker from "./ImagePicker";
+import { FAB } from "react-native-paper";
 
 const BottomDrawerExample = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -12,8 +13,7 @@ const BottomDrawerExample = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Button title="Show Bottom Drawer" onPress={toggleModal} />
-
+      <FAB icon="camera" onPress={toggleModal} style={styles.fabContainer} />
       <Modal
         isVisible={isModalVisible}
         onSwipeComplete={toggleModal}
@@ -43,6 +43,12 @@ const styles = {
     borderTopLeftRadius: 17,
     borderTopRightRadius: 17,
     borderColor: "rgba(0, 0, 0, 0.1)",
+  },
+  fabContainer: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    margin: 20,
   },
 };
 

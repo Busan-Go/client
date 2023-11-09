@@ -13,10 +13,5 @@ export default function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
-  modal: { width: "70%", marginTop: 20, padding: 8 },
 });

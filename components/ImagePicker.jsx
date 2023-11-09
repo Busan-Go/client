@@ -1,5 +1,5 @@
 import { launchCameraAsync, launchImageLibraryAsync } from "expo-image-picker";
-import { View, Button, Image, StyleSheet, Text } from "react-native";
+import { View, Button, Image, StyleSheet } from "react-native";
 import { useState } from "react";
 
 export default function ImagePicker() {
