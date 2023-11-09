@@ -9,8 +9,8 @@ export default function MarketScreen() {
     axios
       .get(`${process.env.EXPO_PUBLIC_API_URL}/api/test`)
       .then((res) => {
-        console.log(res);
-        setTest(res);
+        console.log(res.data.message);
+        setTest(res.data.message);
       })
       .catch((err) => {
         console.log(err);
@@ -21,7 +21,7 @@ export default function MarketScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Market</Text>
       <Button title="test" onPress={testHandle} />
-      {test !== "" ? <Text>{test}</Text> : <Text>아무것도 못 받음</Text>}
+      <Text>{test !== "" ? test : "아무것도 못 받음"}</Text>
     </View>
   );
 }
