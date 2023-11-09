@@ -6,6 +6,8 @@ import Toast from "react-native-toast-message";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Main from "./Main";
 import LoadingScreen from "./screens/LoadingScreen";
+import MissionSuccessScreen from "./screens/MissionSuccessScreen";
+import MissionFailScreen from "./screens/MissionFailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,7 +43,25 @@ export default function App() {
                 return null;
               },
             }}
-          ></Stack.Screen>
+          />
+          <Stack.Screen
+            name="MissionSucess"
+            component={MissionSuccessScreen}
+            options={{
+              header: () => {
+                return null;
+              },
+            }}
+          />
+          <Stack.Screen
+            name="MissionFail"
+            component={MissionFailScreen}
+            options={{
+              header: () => {
+                return null;
+              },
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
       <Toast />
