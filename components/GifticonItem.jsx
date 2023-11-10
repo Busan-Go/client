@@ -12,7 +12,7 @@ export default function GifticonItem({ shop }) {
           justifyContent: "center",
         }}
       >
-        <Image source={shop.image} style={{ width: 100, heigth: 100 }} />
+        <Image source={shop.image} style={{ width: 100, height: 120 }} />
       </View>
       <View style={{ padding: 8, justifyContent: "space-around" }}>
         <Text style={styles.subtitle}>{shop.name}</Text>

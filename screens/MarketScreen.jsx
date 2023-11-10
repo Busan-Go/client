@@ -1,6 +1,4 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
-import axios from "axios";
-import { useState } from "react";
 import GifticonItem from "../components/GifticonItem";
 
 const imagelist = [
@@ -42,21 +40,6 @@ const shoplist = [
 ];
 
 export default function MarketScreen({ wallet }) {
-  const [test, setTest] = useState("");
-  function testHandle() {
-    console.log(`${process.env.EXPO_PUBLIC_API_URL}/api/test`);
-    axios
-      .get(`${process.env.EXPO_PUBLIC_API_URL}/api/users`)
-      .then((res) => {
-        console.log(res);
-        console.log(res.data.users);
-        setTest(res.data.users[0].username);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   return (
     <View style={styles.container}>
       <View
