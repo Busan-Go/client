@@ -7,7 +7,7 @@ export default function Header() {
       <HeaderLogo />
       <Appbar.Content title="" />
       <Appbar.Action icon="bell" onPress={() => {}} />
-      <Appbar.Action icon="magnify" onPress={() => {}} />
+      <Appbar.Action icon="human" onPress={() => {}} />
     </Appbar.Header>
   );
 }

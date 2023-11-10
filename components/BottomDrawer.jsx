@@ -7,12 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import SearchingBar from "./SearchingBar";
 import axios from "axios";
 
-export default function BottomDrawer({
-  navigation,
-  visible,
-  defaultValue,
-  setSelectedItem,
-}) {
+export default function BottomDrawer({ navigation, visible }) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState("");
 
@@ -87,14 +82,9 @@ export default function BottomDrawer({
         style={styles.bottomModal}
       >
         <View style={styles.modalContent}>
-          <SearchingBar
-            navigation={navigation}
-            defaultValue={defaultValue}
-            visibleModal={false}
-            setTextDataItem={setSelectedItem}
-          />
+          <SearchingBar navigation={navigation} visibleModal={false} />
           <Text>등록할 사진을 촬영 혹은 선택해주세요! </Text>
-          <ImagePicker onPress={sendImageHandle} text={defaultValue} />
+          <ImagePicker onPress={sendImageHandle} />
           <Pressable onPress={toggleModal} style={styles.closeContainer}>
             <Ionicons
               name="close"

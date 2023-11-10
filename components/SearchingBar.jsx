@@ -2,15 +2,13 @@ import { StyleSheet, View, Pressable, Text, Modal } from "react-native";
 import { TextInput } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import { tags } from "../data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import CustomArrow from "./CustomArrow";
+import { MyContext } from "../context";
 
-export default function SearchingBar({
-  navigation,
-  defaultValue,
-  visibleModal,
-  setTextDataItem,
-}) {
+export default function SearchingBar({ navigation, visibleModal }) {
+  const { placeName, setPlaceName } = useContext(MyContext);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -18,17 +16,16 @@ export default function SearchingBar({
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    if (defaultValue !== "") {
-      setSearchTerm(defaultValue);
+    if (placeName !== "") {
+      setSearchTerm(placeName);
     }
-  }, [defaultValue]);
+  }, [placeName]);
 
-  // 모달을 열고 선택된 아이템을 설정하는 함수
   const openModalWithItem = (item) => {
     setSelectedItem(item);
     setSearchTerm(item);
     setModalVisible(true);
-    setTextDataItem(item);
+    setPlaceName(item);
   };
 
   const onSuggestionPressed = (suggestion) => {

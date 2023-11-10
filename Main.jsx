@@ -5,7 +5,6 @@ import RegisterScreen from "./screens/RegisterScreen";
 import RecommendScreen from "./screens/RecommendScreen";
 import MissionPlaceScreen from "./screens/MissionPlaceScreen";
 import MarketScreen from "./screens/MarketScreen";
-import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 const BottomTab = createBottomTabNavigator();

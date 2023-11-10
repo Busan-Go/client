@@ -10,8 +10,8 @@ import {
 import { useContext, useState } from "react";
 import { MyContext } from "../context";
 
-export default function ImagePicker({ onPress, text }) {
-  const { imageUri, setImageUri } = useContext(MyContext);
+export default function ImagePicker({ onPress }) {
+  const { imageUri, setImageUri, placeName } = useContext(MyContext);
 
   async function selectImageHandler() {
     const result = await launchImageLibraryAsync({
@@ -60,7 +60,7 @@ export default function ImagePicker({ onPress, text }) {
               }}
               onPress={() => {
                 console.log(imageUri);
-                onPress(text, imageUri);
+                onPress(placeName, imageUri);
               }}
             >
               <Text style={{ fontSize: 30, color: "white" }}>Send?</Text>

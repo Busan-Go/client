@@ -16,11 +16,21 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [wallet, setWallet] = useState(750);
   const [imageUri, setImageUri] = useState("");
+  const [placeName, setPlaceName] = useState("");
 
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
-      <MyContext.Provider value={{ wallet, setWallet, imageUri, setImageUri }}>
+      <MyContext.Provider
+        value={{
+          wallet,
+          setWallet,
+          imageUri,
+          setImageUri,
+          placeName,
+          setPlaceName,
+        }}
+      >
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Main">
             <Stack.Screen

@@ -37,6 +37,34 @@ const shoplist = [
     price: 500,
     description: "대구 중구 봉산문화2길 16-3 구삼커피",
   },
+  {
+    image: imagelist[0],
+    name: "은희네 우동집",
+    menu: "꼬마김밥 한 줄",
+    price: 300,
+    description: "대구 수성구 지산로 47 올리브김밥천국",
+  },
+  {
+    image: imagelist[1],
+    name: "중앙떡볶이",
+    menu: "주먹밥 한 개",
+    price: 250,
+    description: "대구 중구 동성로2길 81 중앙떡볶이",
+  },
+  {
+    image: imagelist[2],
+    name: "상근이네 오뎅집",
+    menu: "어묵꼬지 한 개",
+    price: 210,
+    description: "대구 수성구 지산로 47 올리브김밥천국",
+  },
+  {
+    image: imagelist[3],
+    name: "구삼커피",
+    menu: "쿠키 한 개",
+    price: 500,
+    description: "대구 중구 봉산문화2길 16-3 구삼커피",
+  },
 ];
 
 export default function MarketScreen({ wallet }) {

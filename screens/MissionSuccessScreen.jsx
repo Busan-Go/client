@@ -4,7 +4,7 @@ import { MyContext } from "../context";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function MissionSuccessScreen({ navigation, setWallet }) {
-  const { imageUri } = useContext(MyContext);
+  const { imageUri, placeName } = useContext(MyContext);
 
   useEffect(() => {
     console.log("Mission Success Screen");
@@ -17,6 +17,11 @@ export default function MissionSuccessScreen({ navigation, setWallet }) {
         <Image source={require("../assets/robot2.png")} />
       </View>
       <Text style={styles.title}>미션 성공을 축하드립니다!</Text>
+      <Text style={styles.description}>
+        `{placeName}`에서의 미션 사진이 성공적으로 인식되었습니다!
+      </Text>
+      <Text />
+      <Text style={styles.title}>+200P</Text>
       <View style={{ position: "relative", marginTop: 30 }}>
         <Image source={{ uri: imageUri }} style={{ width: 300, height: 300 }} />
         <Ionicons
