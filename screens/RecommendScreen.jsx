@@ -1,6 +1,5 @@
 import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
 import TagItem from "../components/TagItem";
-import { Ionicons } from "@expo/vector-icons";
 import FollowScrollView from "../components/FollowScrollView";
 import { tags } from "../data";
 import CustomArrow from "../components/CustomArrow";
@@ -46,7 +45,7 @@ export default function RecommendScreen({ navigation }) {
                 </Text>
                 <CustomArrow
                   onPress={() =>
-                    navigation.navigate("MissionPlace", {
+                    navigation.navigate("Place", {
                       item: "",
                     })
                   }
@@ -54,7 +53,7 @@ export default function RecommendScreen({ navigation }) {
               </View>
             </View>
           </Pressable>
-          <Text style={styles.subtitle}>
+          <Text style={[styles.subtitle, { marginTop: 50 }]}>
             어떤 미션부터 수행할지 고민이라면,
           </Text>
           <Text style={styles.description}>

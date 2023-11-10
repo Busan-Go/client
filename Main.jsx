@@ -43,7 +43,7 @@ export default function Main({ wallet, setWallet }) {
           {(props) => <RecommendScreen {...props} />}
         </BottomTab.Screen>
         <BottomTab.Screen
-          name="MissionPlace"
+          name="Place"
           options={{
             headerShown: false,
             tabBarIcon: () => <Ionicons name="map" />,

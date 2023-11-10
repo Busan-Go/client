@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { useContext, useEffect } from "react";
-import { MyContext } from "../App";
+import { MyContext } from "../context";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function MissionSuccessScreen({ navigation, setWallet }) {

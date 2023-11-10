@@ -6,7 +6,7 @@ export default function GifticonItem({ shop }) {
       <View
         style={{
           width: 100,
-          heigth: 100,
+          height: 120,
           backgroundColor: "lightgray",
           overflow: "hidden",
           justifyContent: "center",
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 20,
     elevation: 3,
+    overflow: "hidden",
   },
   subtitle: {
     color: "#268367",

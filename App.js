@@ -8,9 +8,8 @@ import Main from "./Main";
 import LoadingScreen from "./screens/LoadingScreen";
 import MissionSuccessScreen from "./screens/MissionSuccessScreen";
 import MissionFailScreen from "./screens/MissionFailScreen";
-import { useState, createContext } from "react";
-
-export const MyContext = createContext();
+import { useState } from "react";
+import { MyContext } from "./context";
 
 const Stack = createNativeStackNavigator();
 

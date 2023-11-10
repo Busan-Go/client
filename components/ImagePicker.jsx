@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useContext, useState } from "react";
-import { MyContext } from "../App";
+import { MyContext } from "../context";
 
 export default function ImagePicker({ onPress, text }) {
   const { imageUri, setImageUri } = useContext(MyContext);
