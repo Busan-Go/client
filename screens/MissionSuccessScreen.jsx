@@ -21,14 +21,9 @@ export default function MissionSuccessScreen({ navigation, setWallet }) {
         `{placeName}`에서의 미션 사진이 성공적으로 인식되었습니다!
       </Text>
       <Text />
-      <Text style={styles.title}>+200P</Text>
-      <View style={{ position: "relative", marginTop: 30 }}>
+      <Text style={[styles.title, { alignItems: "center" }]}>+200P</Text>
+      <View style={{ marginTop: 30, alignItems: "center" }}>
         <Image source={{ uri: imageUri }} style={{ width: 300, height: 300 }} />
-        <Ionicons
-          name="open"
-          size={50}
-          style={{ position: "absolute", top: 0, right: 0 }}
-        />
       </View>
       <Pressable
         onPress={() => navigation.navigate("Market")}

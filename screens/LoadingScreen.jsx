@@ -6,7 +6,7 @@ export default function LoadingScreen() {
       <View style={{ marginBottom: 28 }}>
         <Image source={require("../assets/robot1.png")} />
       </View>
-      <Text style={styles.title}>델로그AI가</Text>
+      <Text style={styles.title}>대이로그AI가</Text>
       <Text style={styles.title}>미션 사진을 검증하는 중입니다.</Text>
       <View
         style={{
@@ -18,8 +18,8 @@ export default function LoadingScreen() {
         }}
       />
       <Text style={styles.subtitle}>
-        델로그AI란, 대구광역시의 관광명소의 이미지를 학습하여 등록된 미션사진의
-        장소와 진위여부를 판단하는 AI 모델입니다.{" "}
+        대이로그AI란, 대구광역시의 관광명소의 이미지를 학습하여 등록된
+        미션사진의 장소와 진위여부를 판단하는 AI 모델입니다.{" "}
       </Text>
     </View>
   );
